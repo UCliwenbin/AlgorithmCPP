@@ -15,7 +15,7 @@
 #include "LinkList/LinkAlgorithm.hpp"
 #include "NormalAlgorithm/Algorithm.hpp"
 #include "LRUCache.hpp"
-
+#include "DPAlgorithm.hpp"
 
 
 //执行算法
@@ -24,26 +24,9 @@ void executeAlgorithm() {
 //    LinkNode *head = generateNormalLinkList(arr);
 //    LinkNode *res = searchBackKElement(head, 5);
 //    cout<<"res:"<<res->val<<endl;
-    NormalAlgorithm algorithm;
-//    vector<vector<int>> matrix = {{1,2,3,4},{4,5,5,6},{7,8,8,9},{10,11,12,13}};
-//    cout<<"原矩阵为："<<endl;
-//    printFormateMatrix(matrix);
-//    algorithm.reverse90(matrix);
-//    cout<<"旋转后的矩阵为："<<endl;
-//    printFormateMatrix(matrix);
-//    vector<int> testArr = {3,4,5,6,7,0,1,2};
-//    int index = algorithm.BSearch(testArr, 2);
-//    cout<<"找到下标index:"<<index<<endl;
-    LRUCache *cache = new LRUCache(3);
-    cache->put("lwb", "22");
-    cache->put("wq", "23");
-    cache->put("lb", "18");
-    cache->get("lwb");
-    cache->printCacheData();
-    cache->put("wzj", "16");
-    cache->printCacheData();
-    cache->get("lwb");
-    cache->printCacheData();
+    DPAlgorithm algorithm;
+    string str = algorithm.longestPalindrome("ac");
+    cout<<str<<endl;
 }
 
 

@@ -21,6 +21,14 @@ public:
     
 };
 
+ struct ListNode {
+     int val;
+     ListNode *next;
+     ListNode() : val(0), next(nullptr) {}
+     ListNode(int x) : val(x), next(nullptr) {}
+     ListNode(int x, ListNode *next) : val(x), next(next) {}
+};
+
 /// 给定一个数组,生成一个列表结构并返回表头
 /// @param arr 数组
 /// @return 列表的表头
@@ -51,6 +59,13 @@ LinkNode *getIntersectionNode(LinkNode *headA, LinkNode *headB);
 /// @param head 头节点
 /// @param k 倒数第k，假设，k的值不会超过列表的总长度
 LinkNode * searchBackKElement(LinkNode *head, int k);
+
+
+/// 将两个升序链表合并为一个新的 升序 链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。
+/// https://leetcode-cn.com/problems/merge-two-sorted-lists/
+/// @param l1
+/// @param l2
+ListNode* mergeTwoLists(ListNode* l1, ListNode* l2);
 
 
 #endif /* LinkListTool_hpp */

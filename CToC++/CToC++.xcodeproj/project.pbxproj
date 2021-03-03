@@ -162,8 +162,8 @@
 		0457DBB7243FF8F000519CA1 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				0457DBB8243FF90B00519CA1 /* SearchSolution.cpp */,
 				0457DBB9243FF90B00519CA1 /* SearchSolution.hpp */,
+				0457DBB8243FF90B00519CA1 /* SearchSolution.cpp */,
 			);
 			path = Search;
 			sourceTree = "<group>";

@@ -191,3 +191,35 @@ LinkNode * searchBackKElement(LinkNode *head, int k) {
     }
     return slow;
 }
+
+
+ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) {
+    if (!l1 && !l2) return NULL;
+    if (l1 && !l2)  return l1;
+    if (!l1 && l2) return l2;
+    ListNode *mergeNode;
+    if (l1->val < l2->val) {
+        mergeNode = l1;
+        l1 = l1->next;
+    } else {
+        mergeNode = l2;
+        l2 = l2->next;
+    }
+    ListNode *p = mergeNode;
+    while (l1 && l2) {
+        ListNode *tempNode = nullptr;
+        if (l1->val < l2->val) {
+            tempNode = l1;
+            l1 = l1->next;
+        } else {
+            tempNode = l2;
+            l2 = l2->next;
+        }
+        p->next = tempNode;
+        p = p->next;
+    }
+    if (l1) p->next= l1;
+    if (l2) p->next = l2;
+    return mergeNode;
+}
+

@@ -8,7 +8,6 @@
 
 #include "Algorithm2.hpp"
 #include <map>
-using namespace std;
 
 Node * Algorithm2::copyRandomList(Node *head) {
     if (head == NULL) {
@@ -88,4 +87,35 @@ Node* Algorithm2::copyRandomList2(Node *head) {
         current = copyLast->next;
     }
     return copyHead;
+}
+
+
+int Algorithm2::removeDuplicates(vector<int> &nums) {
+//1. 暴力删除法
+//    for (int i = 0; i < nums.size(); i++) {
+//        int currVal = nums[i];
+//        auto begin = nums.begin()+i;
+//        int length = 0;
+//        for (int j = i+1; j < nums.size(); j++) {
+//            if (currVal == nums[j]) {
+//                length++;
+//            }
+//        }
+//        if (length == 0) continue;
+//        nums.erase(begin+1, begin+1+length);
+//    }
+//    return nums.size();
+//    2. 题解的骚操作，快慢指针法
+    int slow = 0,fast = 0;
+    while (fast < nums.size()) {
+        if (nums[fast] == nums[slow]) {
+            fast++;
+        } else {
+            slow++;
+            nums[slow] = nums[fast];
+            fast++;
+        }
+    }
+    return slow;
+    
 }

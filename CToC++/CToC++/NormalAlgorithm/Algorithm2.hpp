@@ -9,7 +9,9 @@
 #ifndef Algorithm2_hpp
 #define Algorithm2_hpp
 
-#include <stdio.h>
+#include <iostream>
+#include <vector>
+using namespace std;
 
 class Node {
 public:
@@ -34,6 +36,16 @@ public:
      上面的那个空间复杂度为O(N),本解法把时间复杂度降到O(1)
      */
     Node* copyRandomList2(Node *head);
+    /**
+     给定一个排序数组，你需要在 原地 删除重复出现的元素，使得每个元素只出现一次，返回移除后数组的新长度。
+
+     不要使用额外的数组空间，你必须在 原地 修改输入数组 并在使用 O(1) 额外空间的条件下完成。
+
+     来源：力扣（LeetCode）
+     链接：https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array
+     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
+    int removeDuplicates(vector<int>& nums);
 };
 
 #endif /* Algorithm2_hpp */

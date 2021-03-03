@@ -9,6 +9,7 @@
 #include "DPAlgorithm.hpp"
 #include <climits>
 #include <algorithm>
+#include <vector>
 
 /**
  @name 暴力递归法
@@ -146,4 +147,82 @@ int DPAlgorithm::coins(vector<int> &arr, int aim) {
     }
     dp = vector<vector<int>>(arr.size(),vector<int>(aim+1,-1));
     return process2(arr,0, aim);
+}
+
+/**
+ 判断是否是回文字符串
+ */
+bool isValide(string string) {
+    int begin = 0;
+    int end = (int)string.length()-1;
+    while (begin < end) {
+        if (string[begin] != string[end]) {
+            return false;
+        }
+        begin++;
+        end--;
+    }
+    return true;
+}
+
+string DPAlgorithm::longestPalindrome(string s) {
+//    //方法1：暴力解法求最长回文子串
+//    if (s.length() < 2) {
+//        return s;
+//    }
+//
+//    size_t maxLength = 0;
+//    string res = s.substr(0,1);
+//    for (int i = 0; i < s.length()-1; i++) {
+//        for (int j = i+1; j < s.length(); j++) {
+//            string subString = s.substr(i,j-i+1);
+//            if (subString.length() > maxLength && isValide(subString)) {
+//                maxLength = subString.length();
+//                res = subString;
+//            }
+//        }
+//    }
+//    return res;
+    
+    /**法2：动态规划（leetcode可以测试通过）
+     状态转移函数：
+        字符串s的任意子串范围为：i---j 之间，而且要保证 j > i
+     动态表格行和列分别表示子串的范围；
+      如果首尾字符相同，那么只要子序列为回文，那么一定是回文
+     那么转移方程就变成：
+     dp[i][j] = （s[i] == s[j] && dp[i+1][j-1]）;
+     
+     1、初始化dp数组
+     */
+    if (s.length() < 2) {
+        return s;
+    }
+    size_t len = s.length();
+    size_t begin = 0;
+    size_t length = 1;
+    //dp数组
+    bool dp[len][len];
+    for (int i = 0; i < len; i++) {
+        dp[i][i] = true;
+    }
+    for (int j = 1; j < len; j++) {
+        for (int i = 0; i < j; i++) {
+            if (s[i] != s[j]) {
+                dp[i][j] = false;
+            } else {
+                if (j-i+1 < 3) {
+                    dp[i][j] = true;
+                } else {
+                    dp[i][j] = dp[i+1][j-1];
+                }
+            }
+            //出现为真，那么进行收集
+            if (dp[i][j] && (j-i+1) > length) {
+                begin = i;
+                length = j-i+1;
+            }
+        }
+    }
+    return s.substr(begin,length);
+    
 }

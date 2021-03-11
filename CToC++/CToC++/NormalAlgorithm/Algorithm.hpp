@@ -85,6 +85,42 @@ public:
     /// @param target 目标值
     /// @return 下标
     int BSearch(vector<int> arr,int target);
+    /**
+     给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。
+
+     在 S 上反复执行重复项删除操作，直到无法继续删除。
+
+     在完成所有重复项删除操作后返回最终的字符串。答案保证唯一。
+
+     来源：力扣（LeetCode）
+     链接：https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string
+     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
+    string removeDuplicates(string S);
+    /**
+     给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。
+     整数除法仅保留整数部分。
+     来源：力扣（LeetCode）
+     链接：https://leetcode-cn.com/problems/basic-calculator-ii
+     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
+    int calculate(string s);
+    /**
+     给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所有满足条件且不重复的四元组。
+
+     注意：答案中不可以包含重复的四元组。
+
+
+
+     来源：力扣（LeetCode）
+     链接：https://leetcode-cn.com/problems/4sum
+     著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+     */
+    vector<vector<int>> fourSum(vector<int>& nums, int target);
+    /**
+     找出3个数的和为0
+     */
+    vector<vector<int>> threeSum(vector<int>& nums);
 };
 
 #endif /* Algorithm_hpp */

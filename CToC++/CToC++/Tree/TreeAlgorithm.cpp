@@ -11,6 +11,7 @@
 #include <stack>
 #include <sstream>
 #include "TestTool.hpp"
+#include <unordered_map>
 
 TreeNode * constructBinaryTree(vector<int> pre,int pre_star,int pre_end,vector<int> vin,int in_star,int in_end) {
     int rootVal = pre[pre_star];
@@ -340,4 +341,160 @@ ReturnValue process(TreeNode *root) {
 
 bool TreeAlgorithm::isBalanceBinaryTree(TreeNode *root) {
     return process(root)->isBalance;
+}
+
+
+TreeNode *TreeAlgorithm::invertTree(TreeNode *root) {
+    /**
+     使用前序遍历
+     */
+//    if (root == NULL) {
+//        return NULL;
+//    }
+//    TreeNode *temp = root->left;
+//    root->left = root->right;
+//    root->right = temp;
+//    invertTree(root->left);
+//    invertTree(root->right);
+//    return root;
+    //使用后续遍历
+    if (root == NULL) {
+        return NULL;
+    }
+    invertTree(root->left);
+    invertTree(root->right);
+    if (root->left || root->right) {
+        TreeNode *temp = root->left;
+        root->left = root->right;
+        root->right = temp;
+    }
+    return root;
+}
+
+
+/// 构造一个最大值的二叉树
+/// @param nums 数组
+/// @param L 数组左边索引
+/// @param R 数组右边索引
+TreeNode *constructMaxBinaryTree(vector<int> &nums,int L,int R) {
+    if (L == R) {
+        return new TreeNode(nums[L]);
+    }
+    if (L > R) {
+        return NULL;
+    }
+//    找出最大值的下标
+    int maxIndex = L;
+    int cur = L+1;
+    while (cur <= R) {
+        if (nums[cur] > nums[maxIndex]) {
+            maxIndex = cur;
+        }
+        cur++;
+    }
+    TreeNode *root = new TreeNode(nums[maxIndex]);
+    root->left = constructMaxBinaryTree(nums, L, maxIndex-1);
+    root->right = constructMaxBinaryTree(nums, maxIndex+1, R);
+    return root;
+}
+
+TreeNode* TreeAlgorithm::constructMaximumBinaryTree(vector<int>& nums) {
+    
+    return constructMaxBinaryTree(nums, 0, (int)nums.size()-1);
+}
+
+string traveTree(TreeNode *root,unordered_map<string, int> &map,vector<TreeNode *> &res) {
+    if (root == NULL) {
+        return "#";
+    }
+    string left = traveTree(root->left, map, res);
+    string right = traveTree(root->right, map, res);
+    //子树的形状
+    string subTree = left+","+right+","+to_string(root->val);
+    if (map[subTree] == 1) {
+        res.push_back(root);
+    }
+    map[subTree]++;
+    return subTree;
+}
+
+vector<TreeNode*> TreeAlgorithm::findDuplicateSubtrees(TreeNode* root) {
+    //知道自己长啥样
+//    知道别人长啥样
+    unordered_map<string, int> map;
+    vector<TreeNode *> res;
+    traveTree(root, map, res);
+    return res;
+}
+
+
+bool searchCommonAncestor(TreeNode *root,TreeNode *p,TreeNode *q,TreeNode *res) {
+    if (root == NULL) {
+        return false;
+    }
+    bool left = searchCommonAncestor(root->left,p,q,res);
+    bool right = searchCommonAncestor(root->right,p,q,res);
+    if ((left && right) || ((root->val == p->val || root->val == q->val) && (left || right))) {
+        res = root;
+    }
+    return left || right || root->val == p->val || root->val == q->val;
+}
+
+
+TreeNode* TreeAlgorithm::lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
+    TreeNode *res = NULL;
+    searchCommonAncestor(root, p,q,res);
+    return res;
+}
+
+/**
+ 给定一个二叉树，判断其是否是一个有效的二叉搜索树。
+
+ 假设一个二叉搜索树具有如下特征：
+
+ 节点的左子树只包含小于当前节点的数。
+ 节点的右子树只包含大于当前节点的数。
+ 所有左子树和右子树自身必须也是二叉搜索树。
+
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/validate-binary-search-tree
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+
+void inOrderTravel(TreeNode *root,vector<int> &arr) {
+    if (root == NULL) return;
+    inOrderTravel(root->left, arr);
+    arr.push_back(root->val);
+    inOrderTravel(root->right, arr);
+}
+bool TreeAlgorithm::isValidBST(TreeNode* root) {
+//    if (root == NULL) return true;
+//    //左子树是二叉，右子树也是二叉
+//    bool lt = isValidBST(root->left);
+//    bool rt = isValidBST(root->right);
+//
+//    bool leftOk = true;
+//    bool rightOk = true;
+//    if (root->left && root->val < root->left->val) {
+//        leftOk = false;
+//    }
+//    if (root->right && root->val > root->right->val) {
+//        rightOk = false;
+//    }
+//    return lt && rt && leftOk && rightOk;
+    vector<int> resArray;
+    inOrderTravel(root, resArray);
+    if (resArray.size() < 2) {
+        return true;
+    }
+    //判断是否是升序
+    bool isAscending = true;
+    for (int i = 1; i < resArray.size(); i++) {
+        int temp = i - 1;
+        if (resArray[temp] > resArray[i]) {
+            isAscending = false;
+            break;
+        }
+    }
+    return isAscending;
 }

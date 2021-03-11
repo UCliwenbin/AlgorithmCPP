@@ -8,6 +8,7 @@
 
 #include "Algorithm2.hpp"
 #include <map>
+#include <algorithm>
 
 Node * Algorithm2::copyRandomList(Node *head) {
     if (head == NULL) {
@@ -118,4 +119,27 @@ int Algorithm2::removeDuplicates(vector<int> &nums) {
     }
     return slow;
     
+}
+
+//回溯
+void backTrace(vector<int> &nums,vector<int> &trace,vector<vector<int>> &res) {
+    if (trace.size() == nums.size()) {
+        res.push_back(trace);
+        return;
+    }
+    for (int i = 0; i < nums.size(); i++) {
+        if (find(trace.begin(),trace.end(),nums[i]) != trace.end()) {
+            continue;
+        }
+        trace.push_back(nums[i]);
+        backTrace(nums, trace, res);
+        trace.pop_back();
+    }
+}
+
+vector<vector<int>> Algorithm2::permute(vector<int>& nums) {
+    vector<vector<int>> res;
+    vector<int> track;
+    backTrace(nums,track,res);
+    return res;
 }

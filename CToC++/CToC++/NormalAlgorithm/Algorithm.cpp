@@ -590,3 +590,179 @@ int NormalAlgorithm::BSearch(vector<int> arr, int target) {
     return -1;
 }
 
+/**
+ 输入："abbaca"
+ 输出："ca"
+ 解释：
+ 例如，在 "abbaca" 中，我们可以删除 "bb" 由于两字母相邻且相同，这是此时唯一可以执行删除操作的重复项。之后我们得到字符串 "aaca"，其中又只有 "aa" 可以执行重复项删除操作，所以最后的字符串为 "ca"。
+
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+string NormalAlgorithm::removeDuplicates(string S) {
+    stack<char> st;
+    for (char &c : S) {
+        if (st.empty() || st.top() != c) {
+            st.push(c);
+        } else {
+            st.pop();
+        }
+    }
+    string res = "";
+    //注意：这里用插入的方式时间会很慢，因为需要进行移位插入操作，如果字符串很大很多的话，时间浪费会很多，不如先收集起来，然后再翻转时间复杂度好
+//    while (!st.empty()) {
+//        res.insert(res.begin(), st.top());
+//        st.pop();
+//    }
+    while(!st.empty()) {
+        res+=st.top();
+        st.pop();
+    }
+    reverse(res.begin(),res.end());
+    return res;
+}
+
+/**
+ 给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。
+
+ 整数除法仅保留整数部分。
+
+  
+
+ 示例 1：
+
+ 输入：s = "3+2*2"
+ 输出：7
+ 示例 2：
+
+ 输入：s = " 3/2 "
+ 输出：1
+ 示例 3：
+
+ 输入：s = " 3+5 / 2 "
+ 输出：5
+
+
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/basic-calculator-ii
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+int NormalAlgorithm::calculate(string s) {
+    char preSign = '+';
+    vector<int> arr;
+    int num = 0;
+    for (int i = 0; i < s.length(); i++) {
+        //如果是数字怎么处理；
+        if (isdigit(s[i])) {
+            num = num * 10 + (s[i] - '0');
+        }
+        //如果是符号或者到达末尾的时候触发计算
+        if ((!isdigit(s[i]) && !isspace(s[i])) || (i == s.length()-1)) {
+            switch (preSign) {
+                case '+':
+                {
+                    arr.push_back(num);
+                }
+                    break;
+                case '-':
+                {
+                    arr.push_back(-num);
+                }
+                    break;
+                case '*':
+                {
+                    int val = arr.back() * num;
+                    arr.pop_back();
+                    arr.push_back(val);
+                }
+                    break;
+                case '/':
+                {
+                    int val = arr.back() / num;
+                    arr.pop_back();
+                    arr.push_back(val);
+                }
+                    break;
+                    
+                default:
+                    break;
+            }
+            num = 0;
+            preSign = s[i];
+        }
+    }
+    int res = 0;
+    for (auto &value : arr) {
+        res+= value;
+    }
+    return res;
+}
+
+/**
+ 给定一个包含 n 个整数的数组 nums 和一个目标值 target，判断 nums 中是否存在四个元素 a，b，c 和 d ，使得 a + b + c + d 的值与 target 相等？找出所有满足条件且不重复的四元组。
+ 注意：答案中不可以包含重复的四元组。
+
+ 示例 1：
+
+ 输入：nums = [1,0,-1,0,-2,2], target = 0
+ 输出：[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+ 
+ 示例 2：
+ 输入：nums = [], target = 0
+ 输出：[]
+
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/4sum
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+//vector<vector<int>> NormalAlgorithm::fourSum(vector<int>& nums, int target) {
+//
+//}
+
+/**
+ 给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有和为 0 且不重复的三元组。
+
+ 注意：答案中不可以包含重复的三元组。
+
+ 来源：力扣（LeetCode）
+ 链接：https://leetcode-cn.com/problems/3sum
+ 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+ */
+vector<vector<int>> NormalAlgorithm::threeSum(vector<int>& nums) {
+    /**
+     需要注意：
+     1、结果中不包含重复3元组
+     2、3个数的和为0
+     */
+    vector<vector<int>> res;
+    if (nums.size() < 3) return {};
+    sort(nums.begin(), nums.end());
+    for (int i = 0; i < nums.size(); i++) {
+        //确定第一个数
+        if (i > 0 && nums[i] == nums[i-1]) {
+            continue;
+        }
+        int target = -nums[i];
+        //放在这里是主要是因为可能存在负数特别大，而正数部分特别小的情况，会丢失用例
+        size_t k = nums.size() - 1;
+        //确定第二个数
+        for (int j = i+1; j < k; j++) {
+            if (j > i+1 && nums[j] == nums[j-1]) {
+                continue;
+            }
+            //确定第三个数
+            while (j < k && (nums[j] + nums[k] > target)) {
+                k--;
+            }
+            if (j == k) {
+                break;
+            }
+            if (nums[j] + nums[k] == target) {
+                vector<int> temp = {nums[i],nums[j],nums[k]};
+                res.push_back(temp);
+            }
+        }
+    }
+    return res;
+}

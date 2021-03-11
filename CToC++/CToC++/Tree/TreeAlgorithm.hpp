@@ -10,16 +10,9 @@
 #define TreeAlgorithm_hpp
 
 #include <iostream>
+#include "TreeNode.hpp"
 using namespace std;
 //定义TreeNode
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode *parent;
-    TreeNode(int x) : val(x), left(NULL), right(NULL),parent(NULL) {}
-};
-
 class TreeAlgorithm {
 public:
     //给定树的前序和中序遍历结果,构建一颗树
@@ -72,6 +65,20 @@ public:
      给定一颗树,判定其是否为一颗平衡二叉树
      */
     bool isBalanceBinaryTree(TreeNode *root);
+    //翻转一颗二叉树
+    TreeNode* invertTree(TreeNode* root);
+    /**给定一个不含重复元素的整数数组 nums 。一个以此数组直接递归构建的 最大二叉树 */
+    TreeNode* constructMaximumBinaryTree(vector<int>& nums);
+    /**
+     给定一棵二叉树，返回所有重复的子树。对于同一类的重复子树，你只需要返回其中任意一棵的根结点即可。
+
+     两棵树重复是指它们具有相同的结构以及相同的结点值。
+     */
+    vector<TreeNode*> findDuplicateSubtrees(TreeNode* root);
+    //2个节点的最近公共祖先
+    TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
+    //判断一颗二叉树是否是二叉搜索树
+    bool isValidBST(TreeNode* root);
     
 };
 

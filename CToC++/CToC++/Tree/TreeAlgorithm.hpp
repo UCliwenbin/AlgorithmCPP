@@ -79,6 +79,8 @@ public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q);
     //判断一颗二叉树是否是二叉搜索树
     bool isValidBST(TreeNode* root);
+    //验证二叉树的前序序列化
+    bool isValidSerialization(string preorder);
     
 };
 

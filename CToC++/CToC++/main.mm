@@ -49,16 +49,18 @@ void executeAlgorithm() {
 //    TreeNode *root = tree.createBinaryTree({1,2,3});
 //    DFSSolution sol;
 //    cout<<sol.sumNumbers(root)<<endl;;
-    NormalAlgorithm algorithm;
-    vector<int> test = {1,2,-2,-1};
-    vector<vector<int>> res = algorithm.threeSum(test);
-    for (int i = 0; i < res.size(); i++) {
-        vector<int> arr = res[i];
-        for (int j = 0; j < arr.size(); j++) {
-            cout<<arr[j]<<",";
-        }
-        cout<<endl;
-    }
+    
+//    NormalAlgorithm algorithm;
+//    vector<int> test = {1,2,-2,-1};
+//    vector<vector<int>> res = algorithm.threeSum(test);
+//    for (int i = 0; i < res.size(); i++) {
+//        vector<int> arr = res[i];
+//        for (int j = 0; j < arr.size(); j++) {
+//            cout<<arr[j]<<",";
+//        }
+//        cout<<endl;
+//    }
+
 }
 
 

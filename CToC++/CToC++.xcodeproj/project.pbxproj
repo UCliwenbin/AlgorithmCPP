@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		040647CB24FD17AA001992C0 /* LeetcodeSolution9.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 040647C924FD17AA001992C0 /* LeetcodeSolution9.cpp */; };
 		0406D31C24B5B18B008E27FF /* LeetCodeSolution380.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0406D31A24B5B18B008E27FF /* LeetCodeSolution380.cpp */; };
+		0416C6F62609B735007C32CD /* MazeAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0416C6F42609B735007C32CD /* MazeAlgorithm.cpp */; };
 		041F2FB724F65ACA0001DD33 /* LeetcodeSolution110.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041F2FB524F65ACA0001DD33 /* LeetcodeSolution110.cpp */; };
 		041FC51824AF76D8008348C5 /* LeetcodeSolution958.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041FC51624AF76D8008348C5 /* LeetcodeSolution958.cpp */; };
 		041FC51B24B2BACE008348C5 /* LeetCodeSolution222.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 041FC51924B2BACE008348C5 /* LeetCodeSolution222.cpp */; };
@@ -21,6 +22,9 @@
 		046B5577244D8ED600D3FE5A /* SortAlgorithmTest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046B5575244D8ED600D3FE5A /* SortAlgorithmTest.cpp */; };
 		046D1ECA24BD5C2F00FBC6CE /* UnionSet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046D1EC824BD5C2F00FBC6CE /* UnionSet.cpp */; };
 		046D1ECD24BD8D0A00FBC6CE /* LeetcodeSolution200.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046D1ECB24BD8D0A00FBC6CE /* LeetcodeSolution200.cpp */; };
+		046E3219260048E7003D551A /* ListNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046E3217260048E7003D551A /* ListNode.cpp */; };
+		046E321F26004BA1003D551A /* SwordAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046E321D26004BA1003D551A /* SwordAlgorithm.cpp */; };
+		046E32292601B100003D551A /* CQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 046E32272601B100003D551A /* CQueue.cpp */; };
 		0476006025EF2678000FFAB9 /* SlidingWindowAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0476005E25EF2678000FFAB9 /* SlidingWindowAlgorithm.cpp */; };
 		0476034B25F0725A000FFAB9 /* LeetCodeSolution6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0476034925F0725A000FFAB9 /* LeetCodeSolution6.cpp */; };
 		04790B3524AB3CD40032CE87 /* LeetCodeSolution1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04790B3324AB3CD40032CE87 /* LeetCodeSolution1.cpp */; };
@@ -68,6 +72,8 @@
 		040647CA24FD17AA001992C0 /* LeetcodeSolution9.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetcodeSolution9.hpp; sourceTree = "<group>"; };
 		0406D31A24B5B18B008E27FF /* LeetCodeSolution380.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeSolution380.cpp; sourceTree = "<group>"; };
 		0406D31B24B5B18B008E27FF /* LeetCodeSolution380.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeSolution380.hpp; sourceTree = "<group>"; };
+		0416C6F42609B735007C32CD /* MazeAlgorithm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MazeAlgorithm.cpp; sourceTree = "<group>"; };
+		0416C6F52609B735007C32CD /* MazeAlgorithm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MazeAlgorithm.hpp; sourceTree = "<group>"; };
 		041F2FB524F65ACA0001DD33 /* LeetcodeSolution110.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetcodeSolution110.cpp; sourceTree = "<group>"; };
 		041F2FB624F65ACA0001DD33 /* LeetcodeSolution110.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetcodeSolution110.hpp; sourceTree = "<group>"; };
 		041FC51624AF76D8008348C5 /* LeetcodeSolution958.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetcodeSolution958.cpp; sourceTree = "<group>"; };
@@ -92,6 +98,12 @@
 		046D1EC924BD5C2F00FBC6CE /* UnionSet.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnionSet.hpp; sourceTree = "<group>"; };
 		046D1ECB24BD8D0A00FBC6CE /* LeetcodeSolution200.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetcodeSolution200.cpp; sourceTree = "<group>"; };
 		046D1ECC24BD8D0A00FBC6CE /* LeetcodeSolution200.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetcodeSolution200.hpp; sourceTree = "<group>"; };
+		046E3217260048E7003D551A /* ListNode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ListNode.cpp; sourceTree = "<group>"; };
+		046E3218260048E7003D551A /* ListNode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ListNode.hpp; sourceTree = "<group>"; };
+		046E321D26004BA1003D551A /* SwordAlgorithm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SwordAlgorithm.cpp; sourceTree = "<group>"; };
+		046E321E26004BA1003D551A /* SwordAlgorithm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SwordAlgorithm.hpp; sourceTree = "<group>"; };
+		046E32272601B100003D551A /* CQueue.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CQueue.cpp; sourceTree = "<group>"; };
+		046E32282601B100003D551A /* CQueue.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = CQueue.hpp; sourceTree = "<group>"; };
 		0476005E25EF2678000FFAB9 /* SlidingWindowAlgorithm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SlidingWindowAlgorithm.cpp; sourceTree = "<group>"; };
 		0476005F25EF2678000FFAB9 /* SlidingWindowAlgorithm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = SlidingWindowAlgorithm.hpp; sourceTree = "<group>"; };
 		0476034925F0725A000FFAB9 /* LeetCodeSolution6.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCodeSolution6.cpp; sourceTree = "<group>"; };
@@ -220,6 +232,19 @@
 			path = UnionSet;
 			sourceTree = "<group>";
 		};
+		046E321C26004B6F003D551A /* 剑指Offer */ = {
+			isa = PBXGroup;
+			children = (
+				046E321E26004BA1003D551A /* SwordAlgorithm.hpp */,
+				046E321D26004BA1003D551A /* SwordAlgorithm.cpp */,
+				046E32272601B100003D551A /* CQueue.cpp */,
+				046E32282601B100003D551A /* CQueue.hpp */,
+				0416C6F52609B735007C32CD /* MazeAlgorithm.hpp */,
+				0416C6F42609B735007C32CD /* MazeAlgorithm.cpp */,
+			);
+			path = "剑指Offer";
+			sourceTree = "<group>";
+		};
 		0476005D25EF264C000FFAB9 /* 滑动窗口 */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +323,8 @@
 			children = (
 				04C4901724603ED9009DA718 /* LinkAlgorithm.hpp */,
 				04C4901624603ED9009DA718 /* LinkAlgoritm.cpp */,
+				046E3218260048E7003D551A /* ListNode.hpp */,
+				046E3217260048E7003D551A /* ListNode.cpp */,
 			);
 			path = LinkList;
 			sourceTree = "<group>";
@@ -362,6 +389,7 @@
 		04F1CF65240C9A0300A4C8DE /* CToC++ */ = {
 			isa = PBXGroup;
 			children = (
+				046E321C26004B6F003D551A /* 剑指Offer */,
 				04DB245B25F8A62B009E1B4F /* DFS */,
 				0476005D25EF264C000FFAB9 /* 滑动窗口 */,
 				04DDBA4F25E6374100BD92CB /* LRU算法 */,
@@ -463,6 +491,8 @@
 				04558B1A243ADAC0007EDFBF /* RecursionSolution.cpp in Sources */,
 				04C4901824603ED9009DA718 /* LinkAlgoritm.cpp in Sources */,
 				04790B3524AB3CD40032CE87 /* LeetCodeSolution1.cpp in Sources */,
+				046E321F26004BA1003D551A /* SwordAlgorithm.cpp in Sources */,
+				046E32292601B100003D551A /* CQueue.cpp in Sources */,
 				041FC51824AF76D8008348C5 /* LeetcodeSolution958.cpp in Sources */,
 				0457DBBA243FF90C00519CA1 /* SearchSolution.cpp in Sources */,
 				04DB246325F8BB5B009E1B4F /* TreeNode.cpp in Sources */,
@@ -472,11 +502,13 @@
 				0476006025EF2678000FFAB9 /* SlidingWindowAlgorithm.cpp in Sources */,
 				04F44A7424C4902000260AAC /* LeetcodeSolution102.cpp in Sources */,
 				04F44A7D24C80DD100260AAC /* LeetcodeSolution897.cpp in Sources */,
+				046E3219260048E7003D551A /* ListNode.cpp in Sources */,
 				04F44A6E24C1438D00260AAC /* LeetcodeSolution112.cpp in Sources */,
 				046B5577244D8ED600D3FE5A /* SortAlgorithmTest.cpp in Sources */,
 				041FC51B24B2BACE008348C5 /* LeetCodeSolution222.cpp in Sources */,
 				04F5F150241C6C8D005E6B51 /* Algorithm.cpp in Sources */,
 				04DDBA8F25E748C200BD92CB /* LRUCache.cpp in Sources */,
+				0416C6F62609B735007C32CD /* MazeAlgorithm.cpp in Sources */,
 				0406D31C24B5B18B008E27FF /* LeetCodeSolution380.cpp in Sources */,
 				041FC51E24B2D00F008348C5 /* LeetCodeSolution2.cpp in Sources */,
 				04F44A6B24C1378B00260AAC /* LeetcodeSolution437.cpp in Sources */,

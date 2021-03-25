@@ -121,6 +121,8 @@ public:
      找出3个数的和为0
      */
     vector<vector<int>> threeSum(vector<int>& nums);
+    //字符串转数字
+    int myAtoi(string s);
 };
 
 #endif /* Algorithm_hpp */

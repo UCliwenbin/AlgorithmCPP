@@ -296,7 +296,7 @@ void printArr(vector<int>arr) {
     cout<<endl;
 }
 
-//从cur~i的范围内,如果出现过和i的值相同的值,那么这个值已经被放到了开头过了,所以不需要再放一次
+//从cur~i的范围内,如果出现过和i的值相同的值,那么这个值已经被放到了开头过了,所以不需要再放一次(实际是去重操作)
 bool judgeSwap(vector<int>arr,int cur, int i) {
     for (int j = cur; j < i; j++) {
         if (arr[j] == arr[i]) {
@@ -765,4 +765,45 @@ vector<vector<int>> NormalAlgorithm::threeSum(vector<int>& nums) {
         }
     }
     return res;
+}
+
+/**
+ 说明：s中可能存在空白、非数字字符等其他符号
+ 要求：
+    1、有符号数
+    2、如果不是有效的数字，那么返回0
+    3、如果中间有非数字，那么只返回前半段的数字
+ */
+int NormalAlgorithm::myAtoi(string s) {
+    char sign = ' ';
+    long res = 0;
+    if (s.length() == 0) return 0;
+    int i = 0;
+    while (i < s.length()) {
+        char temp = s[i];
+        //去掉无用的前导空格
+        if (temp == ' ' && res == 0) {
+            i++;
+            continue;
+        }
+        if (sign == ' ' && (temp == '+' || temp == '-')) {
+            sign = temp;
+            i++;
+        } else if ((temp-'0') >= 0 && (temp-'0')<= 9) {
+            if (sign == ' ') {
+                sign = '+';
+            }
+            res = (res * 10) + (temp - '0');
+            i++;
+        } else {
+            break;
+        }
+    }
+    
+    res = (sign == '+' ? res : -res);
+    if (res >= INT32_MAX || res <= INT32_MIN) {
+        return 0;
+    }
+    return res;
+    
 }

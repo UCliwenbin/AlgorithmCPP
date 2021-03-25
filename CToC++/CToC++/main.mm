@@ -21,6 +21,8 @@
 #import "Algorithm.hpp"
 #include "DFSAlgorithm.hpp"
 #include "TreeAlgorithm.hpp"
+#include "Algorithm2.hpp"
+#include "MazeAlgorithm.hpp"
 
 
 //执行算法
@@ -37,8 +39,8 @@ void executeAlgorithm() {
 //    cout<<res<<endl;
     
 //    NormalAlgorithm algorithm;
-//    string s = algorithm.removeDuplicates("abbaca");
-//    cout<<s<<endl;
+//    int res = algorithm.myAtoi("   -42");
+//    cout<<res<<endl;
 //    string s;
 //    s.push_back(to_string(1)[0]);
 //    s.push_back(to_string(2)[0]);
@@ -60,7 +62,14 @@ void executeAlgorithm() {
 //        }
 //        cout<<endl;
 //    }
-
+    
+    MazeAlgorithm algorithm;
+    vector<vector<int>> maze = algorithm.createMaze();
+    vector<string> path = algorithm.searchMinPathDFS(maze, 0, 0, 4, 4);
+//    for (int i = 0; i < path.size(); i++) {
+//        cout<<path[i]<<",";
+//    }
+//    cout<<endl;
 }
 
 

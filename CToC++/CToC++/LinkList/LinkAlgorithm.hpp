@@ -10,6 +10,7 @@
 #define LinkListTool_hpp
 
 #include <iostream>
+#include "ListNode.hpp"
 using namespace std;
 
 class LinkNode {
@@ -20,15 +21,6 @@ public:
     LinkNode(int x) : val(x), next(NULL) {}
     
 };
-
- struct ListNode {
-     int val;
-     ListNode *next;
-     ListNode() : val(0), next(nullptr) {}
-     ListNode(int x) : val(x), next(nullptr) {}
-     ListNode(int x, ListNode *next) : val(x), next(next) {}
-};
-
 /// 给定一个数组,生成一个列表结构并返回表头
 /// @param arr 数组
 /// @return 列表的表头

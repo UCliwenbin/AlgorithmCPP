@@ -71,3 +71,19 @@ int DFSSolution::sumNumbers(TreeNode* root) {
     deepSearch(root,s,res);
     return res;
 }
+
+vector<vector<int>> ans;
+void backTrack(vector<int> &num,vector<int> &path,int start) {
+    ans.push_back(path);
+    for (int i = start; i < num.size(); i++) {
+        path.push_back(num[i]);
+        backTrack(num, path, i+1);
+        path.pop_back();
+    }
+}
+
+vector<vector<int>> DFSSolution::subsets(vector<int>& nums) {
+    vector<int> path;
+    backTrack(nums, path, 0);
+    return ans;
+}

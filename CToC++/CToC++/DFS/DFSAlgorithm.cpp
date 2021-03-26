@@ -7,6 +7,7 @@
 //
 
 #include "DFSAlgorithm.hpp"
+#include <algorithm>
 
 void findAllLeaf(TreeNode *root,vector<int> &leafArray) {
     if (root == NULL) return;
@@ -85,5 +86,55 @@ void backTrack(vector<int> &num,vector<int> &path,int start) {
 vector<vector<int>> DFSSolution::subsets(vector<int>& nums) {
     vector<int> path;
     backTrack(nums, path, 0);
+    return ans;
+}
+
+void dupBackTrack(vector<int> &num,vector<int> &path,int start) {
+    ans.push_back(path);
+    for (int i = start; i < num.size(); i++) {
+        //剪枝
+        if (i > start && num[i] == num[i-1]) {
+            continue;
+        }
+        path.push_back(num[i]);
+        dupBackTrack(num, path, i+1);
+        path.pop_back();
+    }
+}
+
+vector<vector<int>> DFSSolution::subsetsWithDup(vector<int>& nums) {
+    vector<int> path;
+    sort(nums.begin(), nums.end(), [](int a,int b)->bool{
+        return a < b;
+    });
+    dupBackTrack(nums, path, 0);
+    return ans;
+}
+
+//求和数组
+int sum(vector<int> arr) {
+    int sum = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        sum += arr[i];
+    }
+    return sum;
+}
+
+void dfsFindComp(vector<int> &candidates,vector<int> &path,int target,int start) {
+    int tempSum = sum(path);
+    if (tempSum == target) {
+        ans.push_back(path);
+    } else if (tempSum < target) {
+        for (int i = start; i < candidates.size(); i++) {
+            path.push_back(candidates[i]);
+            dfsFindComp(candidates, path, target,i);
+            path.pop_back();
+        }
+    }
+}
+
+vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
+    vector<int> path;
+    dfsFindComp(candidates, path, target,0);
     return ans;
 }

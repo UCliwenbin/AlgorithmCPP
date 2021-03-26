@@ -547,3 +547,21 @@ bool TreeAlgorithm::isValidSerialization(string preorder) {
     return slots == 0;
     
 }
+
+
+vector<int> TreeAlgorithm::inorderTraversal(TreeNode* root) {
+    vector<int> res;
+    stack<TreeNode *> stack;
+    while (root != NULL || !stack.empty()) {
+        //如果有左边的节点，那就一直往左穿
+        while (root != NULL) {
+            stack.push(root);
+            root = root->left;
+        }
+        TreeNode *node = stack.top();
+        stack.pop();
+        res.push_back(node->val);
+        root = node->right;
+    }
+    return res;
+}

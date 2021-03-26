@@ -160,3 +160,34 @@ int SwordAlgorithm::movingCount(int m, int n, int k) {
     dfs(0, 0, m-1, n-1, k, visited);
     return counter;
 }
+
+static int maxNum = 0;
+vector<int> path;
+int calMutiply(vector<int> arr) {
+    int res = 1;
+    for (int i = 0; i < arr.size(); i++) {
+        res *= arr[i];
+    }
+    return res;
+}
+
+void dfsCal(int n,int start,int rest) {
+    if (rest == 0) {
+        int res = calMutiply(path);
+        maxNum = res > maxNum ? res : maxNum;
+        return;
+    }
+    if (rest < 0) return;
+    int i = start;
+    while (i < n) {
+        path.push_back(i);
+        dfsCal(n, i, rest-i);
+        path.pop_back();
+        i++;
+    }
+}
+
+int SwordAlgorithm::cuttingRope(int n) {
+    dfsCal(n, 1, n);
+    return maxNum;
+}

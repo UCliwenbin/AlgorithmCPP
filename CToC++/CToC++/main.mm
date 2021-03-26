@@ -23,6 +23,7 @@
 #include "TreeAlgorithm.hpp"
 #include "Algorithm2.hpp"
 #include "MazeAlgorithm.hpp"
+#include "SwordAlgorithm.hpp"
 
 
 //执行算法
@@ -63,13 +64,16 @@ void executeAlgorithm() {
 //        cout<<endl;
 //    }
     
-    MazeAlgorithm algorithm;
-    vector<vector<int>> maze = algorithm.createMaze();
-    vector<string> path = algorithm.searchMinPathDFS(maze, 0, 0, 4, 4);
+//    MazeAlgorithm algorithm;
+//    vector<vector<int>> maze = algorithm.createMaze();
+//    vector<string> path = algorithm.searchMinPathDFS(maze, 0, 0, 4, 4);
 //    for (int i = 0; i < path.size(); i++) {
 //        cout<<path[i]<<",";
 //    }
 //    cout<<endl;
+    SwordAlgorithm algorithm;
+    int rest = algorithm.cuttingRope(49);
+    cout<<rest<<endl;
 }
 
 

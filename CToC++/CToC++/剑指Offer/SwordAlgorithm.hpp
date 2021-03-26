@@ -24,6 +24,12 @@ public:
      https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
      */
     int movingCount(int m, int n, int k);
+    /**
+     https://leetcode-cn.com/problems/jian-sheng-zi-lcof/
+     剑指 Offer 14- I. 剪绳子
+        使用回溯算法计算超时
+     */
+    int cuttingRope(int n);
 };
 
 #endif /* SwordAlgorithm_hpp */

@@ -81,6 +81,8 @@ public:
     bool isValidBST(TreeNode* root);
     //验证二叉树的前序序列化
     bool isValidSerialization(string preorder);
+    //迭代的方式中序遍历一颗二叉树
+    vector<int> inorderTraversal(TreeNode* root);
     
 };
 

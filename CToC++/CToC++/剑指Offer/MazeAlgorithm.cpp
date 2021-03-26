@@ -135,6 +135,7 @@ vector<vector<string>> searchAllPath(vector<vector<int>> maze, int sx,int sy,int
     return res;
 }
 
-vector<string> MazeAlgorithm::searchMinPathDFS(vector<vector<int>> maze, int sx,int sy,int ex,int ey) {
-    
+//vector<string> MazeAlgorithm::searchMinPathDFS(vector<vector<int>> maze, int sx,int sy,int ex,int ey) {
+//    //
+//    return ;
 }

@@ -138,3 +138,24 @@ vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
     dfsFindComp(candidates, path, target,0);
     return ans;
 }
+
+static vector<int> needCoins;
+static int rest = INT_MAX;
+void dfsSol(vector<int> &coins,int amount,int start) {
+    if (amount == 0) {
+        int coins  = (int)needCoins.size();
+        if (coins < rest) rest = coins;
+    }
+    for (int i = start; i < coins.size(); i++) {
+        int curCoin = coins[i];
+        if (amount < curCoin) continue;
+        needCoins.push_back(curCoin);
+        dfsSol(coins, amount-curCoin, i);
+        needCoins.pop_back();
+    }
+}
+
+int DFSSolution::coinChange(vector<int> &coins, int amount) {
+    dfsSol(coins, amount, 0);
+    return rest == INT_MAX ? -1 : rest;
+}

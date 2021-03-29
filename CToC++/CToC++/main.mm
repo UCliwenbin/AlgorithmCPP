@@ -24,7 +24,7 @@
 #include "Algorithm2.hpp"
 #include "MazeAlgorithm.hpp"
 #include "SwordAlgorithm.hpp"
-
+#include "DFSAlgorithm.hpp"
 
 //执行算法
 void executeAlgorithm() {
@@ -71,9 +71,13 @@ void executeAlgorithm() {
 //        cout<<path[i]<<",";
 //    }
 //    cout<<endl;
-    SwordAlgorithm algorithm;
-    int rest = algorithm.cuttingRope(49);
-    cout<<rest<<endl;
+//    SwordAlgorithm algorithm;
+//    int rest = algorithm.cuttingRope(49);
+//    cout<<rest<<endl;
+    DFSSolution solution;
+    vector<int> coins = {411,412,413,414,415,416,417,418,419,420,421,422};
+    int ans = solution.coinChange(coins, 9864);
+    cout<<ans<<endl;
 }
 
 

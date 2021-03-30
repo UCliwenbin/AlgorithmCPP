@@ -428,6 +428,7 @@ vector<TreeNode*> TreeAlgorithm::findDuplicateSubtrees(TreeNode* root) {
 }
 
 
+//解法1：纯递归解法
 bool searchCommonAncestor(TreeNode *root,TreeNode *p,TreeNode *q,TreeNode *res) {
     if (root == NULL) {
         return false;
@@ -438,6 +439,25 @@ bool searchCommonAncestor(TreeNode *root,TreeNode *p,TreeNode *q,TreeNode *res) 
         res = root;
     }
     return left || right || root->val == p->val || root->val == q->val;
+}
+
+//解法2：找出从根到某一个节点的路径，然后找出2条路径最后一个相同的节点
+static bool flag = false;
+void getPath(TreeNode *root,TreeNode *node,vector<TreeNode *> &path) {
+    if (root == NULL) {
+        return;
+    }
+    path.push_back(root);
+    if (root == node) {
+        flag = true;
+        return;
+    }
+    getPath(root->left, node, path);
+    getPath(root->right, node, path);
+    if (flag) {
+        return;
+    }
+    path.pop_back();
 }
 
 

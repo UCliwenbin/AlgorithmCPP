@@ -8,6 +8,7 @@
 
 #include "DFSAlgorithm.hpp"
 #include <algorithm>
+#include <unordered_map>
 
 void findAllLeaf(TreeNode *root,vector<int> &leafArray) {
     if (root == NULL) return;
@@ -139,6 +140,30 @@ vector<vector<int>> combinationSum(vector<int>& candidates, int target) {
     return ans;
 }
 
+
+/**
+ 暴力递归 && 备忘录解法:
+    输入一个金额n，返回凑出这个金额需要的最少钱币数（钱币数无限）
+    如果不能凑出，那么返回-1
+ FIXME://使用备忘录解法是可以通过的
+ */
+static unordered_map<int, int> memo;
+int recursionFun(vector<int> &coins,int n) {
+    if (memo.find(n) != memo.end()) return memo[n];
+    if (n == 0) return 0;
+    if (n < 0) return -1;
+    int res = INT_MAX;
+    for (int i = 0; i < coins.size(); i++) {
+        int subPath = recursionFun(coins, n - coins[i]);
+        if (subPath == -1) continue;
+        res = min(res, 1 + subPath);
+    }
+    memo[n] = (res == INT_MAX ? -1 : res);
+    return memo[n];
+}
+
+
+//回溯的解法
 static vector<int> needCoins;
 static int rest = INT_MAX;
 void dfsSol(vector<int> &coins,int amount,int start) {

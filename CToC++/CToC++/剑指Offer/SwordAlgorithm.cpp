@@ -188,6 +188,25 @@ int dfsCal(int n) {
     return res;
 }
 
+//动态规划解法
+/**
+ dp的递推公式为：
+ dp[i]=max(j×(i−j),j×dp[i−j])
+ 
+ dp[i]：表示的是绳子长度为i时的最大乘积
+ */
+int cuttingRopeDP(int n) {
+    vector<int> dp(n+1,0);
+    dp[0] = 0;
+    dp[1] = 1;
+    for (int i = 2; i <= n; i++) {
+        for (int j = 1; j < i; j++) {
+            dp[i] = max(dp[j], max(j * (i-j), j * dp[i - j]));
+        }
+    }
+    return dp[n];
+}
+
 int SwordAlgorithm::cuttingRope(int n) {
     int ans = dfsCal(n);
     return ans;

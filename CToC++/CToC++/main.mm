@@ -72,12 +72,20 @@ void executeAlgorithm() {
 //    }
 //    cout<<endl;
 //    SwordAlgorithm algorithm;
-//    int rest = algorithm.cuttingRope(49);
+//    int rest = algorithm.cuttingRope(10);
 //    cout<<rest<<endl;
-    DFSSolution solution;
-    vector<int> coins = {411,412,413,414,415,416,417,418,419,420,421,422};
-    int ans = solution.coinChange(coins, 9864);
-    cout<<ans<<endl;
+//    DFSSolution solution;
+//    vector<int> coins = {411,412,413,414,415,416,417,418,419,420,421,422};
+//    int ans = solution.coinChange(coins, 9864);
+//    cout<<ans<<endl;
+    
+    TreeAlgorithm treeAlg;
+    vector<int> treeA = {1,3,2,4};
+    vector<int> treeB = {3,4};
+    TreeNode *A = treeAlg.createBinaryTree(treeA);
+    TreeNode *B = treeAlg.createBinaryTree(treeB);
+    bool val = treeAlg.isSubStructure(A, B);
+    cout<<val<<endl;
 }
 
 

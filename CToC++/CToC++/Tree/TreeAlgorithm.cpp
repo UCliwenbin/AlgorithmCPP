@@ -429,6 +429,15 @@ vector<TreeNode*> TreeAlgorithm::findDuplicateSubtrees(TreeNode* root) {
 
 
 //解法1：纯递归解法
+/**
+ 后续遍历方法：
+    也就是说：当到达我这个节点的时候，我不做任何事情，而是继续穿我的子树，直到到底了，当回来的时候，我再判断以我为根的子树，
+    是否包含了p和q这2个节点，如果包含了，那我必然是最近的公共祖先。
+    前序遍历：自上而下，注重于递的过程；
+    后续遍历：自下而上，注重于归的过程
+    回溯算法：利用递归的思路，递的时候做点事情，归的时候也做点事情
+ 
+ */
 bool searchCommonAncestor(TreeNode *root,TreeNode *p,TreeNode *q,TreeNode *res) {
     if (root == NULL) {
         return false;
@@ -585,3 +594,70 @@ vector<int> TreeAlgorithm::inorderTraversal(TreeNode* root) {
     }
     return res;
 }
+
+
+TreeNode *generateTree(vector<int> &nums,int start,int end) {
+    if (start > end) {
+        return NULL;
+    }
+    int middle = (start + end) / 2;
+    TreeNode *node = new TreeNode(nums[middle]);
+    node->left = generateTree(nums, start, middle-1);
+    node->right = generateTree(nums, middle+1, end);
+    return node;
+}
+
+TreeNode* TreeAlgorithm::sortedArrayToBST(vector<int>& nums) {
+    int start = 0;
+    int end = (int)nums.size()-1;
+    TreeNode *ans = generateTree(nums, start, end);
+    return ans;
+}
+
+void collectTreeNode(TreeNode *root,vector<int> &val) {
+    if (root == NULL) return;
+    val.push_back(root->val);
+    collectTreeNode(root->left, val);
+    collectTreeNode(root->right, val);
+}
+
+/**
+ 输入两棵二叉树A和B，判断B是不是A的子结构。(约定空树不是任意一个树的子结构)
+
+ B是A的子结构， 即 A中有出现和B相同的结构和节点值。
+ 
+ 时间超时了
+ */
+//递归的去查找，是否B是A的子结构
+bool recursive(TreeNode *A,TreeNode *B) {
+    if (B == NULL) return true;
+    if (A == NULL || A->val != B->val) return false;
+    return recursive(A->left, B->left) && recursive(A->right, B->right);
+}
+bool TreeAlgorithm::isSubStructure(TreeNode *A, TreeNode *B) {
+//    //前序遍历
+//    vector<int> Ares;
+//    collectTreeNode(A, Ares);
+//    vector<int> Bres;
+//    collectTreeNode(B, Bres);
+//    //判断B是否是A的一个子集
+//    if (Ares.size() < Bres.size()) return false;
+//    if (Bres.size() == 0) return false;
+//    int index = 0;
+//    for (int i = 0; i < Ares.size(); i++) {
+//        if (Ares[i] == Bres[index] && index < Bres.size()) {
+//            index++;
+//        } else if(index < Bres.size()) {
+//            index = 0;
+//        } else {
+//            return true;
+//        }
+//    }
+//    if (index == Bres.size()) {
+//        return true;
+//    }
+//    return false;
+    
+    return ((A != NULL && B != NULL) && (recursive(A, B) || isSubStructure(A->left, B) || isSubStructure(A->right, B)));
+}
+

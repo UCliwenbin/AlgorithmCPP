@@ -7,7 +7,7 @@
 //
 
 #include "SwordAlgorithm.hpp"
-
+#include <unordered_map>
 
 /**
  输入某二叉树的前序遍历和中序遍历的结果，请重建该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。
@@ -163,6 +163,8 @@ int SwordAlgorithm::movingCount(int m, int n, int k) {
 
 static int maxNum = 0;
 vector<int> path;
+//备忘录，记录当绳子长度对应的最大乘积的值
+unordered_map<int, int> memo;
 int calMutiply(vector<int> arr) {
     int res = 1;
     for (int i = 0; i < arr.size(); i++) {
@@ -171,23 +173,22 @@ int calMutiply(vector<int> arr) {
     return res;
 }
 
-void dfsCal(int n,int start,int rest) {
-    if (rest == 0) {
-        int res = calMutiply(path);
-        maxNum = res > maxNum ? res : maxNum;
-        return;
+unordered_map<int, int> ropMemo;
+int dfsCal(int n) {
+    if (ropMemo.find(n) != ropMemo.end()) {
+        return ropMemo[n];
     }
-    if (rest < 0) return;
-    int i = start;
-    while (i < n) {
-        path.push_back(i);
-        dfsCal(n, i, rest-i);
-        path.pop_back();
-        i++;
+    if (n == 0 || n == 1) return 1;
+    int res = 0;
+    for (int i = 1; i < n; i++) {
+        //剩下的继续剪 || 剩下的不剪了
+         res = max(res,max(dfsCal(n - i) * i, i * (n - i))) ;
     }
+    ropMemo[n] = res;
+    return res;
 }
 
 int SwordAlgorithm::cuttingRope(int n) {
-    dfsCal(n, 1, n);
-    return maxNum;
+    int ans = dfsCal(n);
+    return ans;
 }

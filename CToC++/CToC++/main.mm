@@ -25,6 +25,7 @@
 #include "MazeAlgorithm.hpp"
 #include "SwordAlgorithm.hpp"
 #include "DFSAlgorithm.hpp"
+#import "WCCTrieTreeUtil.h"
 
 //执行算法
 void executeAlgorithm() {
@@ -79,13 +80,26 @@ void executeAlgorithm() {
 //    int ans = solution.coinChange(coins, 9864);
 //    cout<<ans<<endl;
     
-    TreeAlgorithm treeAlg;
-    vector<int> treeA = {1,3,2,4};
-    vector<int> treeB = {3,4};
-    TreeNode *A = treeAlg.createBinaryTree(treeA);
-    TreeNode *B = treeAlg.createBinaryTree(treeB);
-    bool val = treeAlg.isSubStructure(A, B);
-    cout<<val<<endl;
+//    TreeAlgorithm treeAlg;
+//    vector<int> treeA = {1,3,2,4};
+//    vector<int> treeB = {3,4};
+//    TreeNode *A = treeAlg.createBinaryTree(treeA);
+//    TreeNode *B = treeAlg.createBinaryTree(treeB);
+//    bool val = treeAlg.isSubStructure(A, B);
+//    cout<<val<<endl;
+    
+    WCCTrieTreeUtil *util = [[WCCTrieTreeUtil alloc] init];
+    [util insert:@"五分钟学算法"];
+    [util insert:@"五分钟商学院"];
+    [util insert:@"五分钟英语演讲"];
+    [util insert:@"六分钟"];
+    [util insert:@"五分钟干点啥"];
+    [util insert:@"五天的时间干点啥"];
+    [util deleteStr:@"五分钟干点啥"];
+    NSArray *arr = [util printPre:@"五"];
+    for (int i = 0; i < arr.count; i++) {
+        NSLog(@"%@",arr[i]);
+    }
 }
 
 

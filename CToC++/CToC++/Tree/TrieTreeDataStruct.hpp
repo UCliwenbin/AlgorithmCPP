@@ -20,7 +20,7 @@ using namespace std;
 
 const int MaxBranchNum = 26;//可以扩展
 
-class TrieNode{
+class TrieNode {
 public:
     string word;
     int path;  //该字符被划过多少次，用以统计以该字符串作为前缀的字符串的个数

@@ -24,7 +24,7 @@ void UnionSet::to_union(int x1, int x2) {
         parent[f2] = f1;
     } else {
         parent[f1] = f2;
-        if (f1 == f2) {
+        if (rank[f1] == rank[f2]) {
             rank[f2]++;
         }
     }

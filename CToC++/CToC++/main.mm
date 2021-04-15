@@ -26,6 +26,7 @@
 #include "SwordAlgorithm.hpp"
 #include "DFSAlgorithm.hpp"
 #import "WCCTrieTreeUtil.h"
+#import "UnionSetExample.hpp"
 
 //执行算法
 void executeAlgorithm() {
@@ -88,18 +89,20 @@ void executeAlgorithm() {
 //    bool val = treeAlg.isSubStructure(A, B);
 //    cout<<val<<endl;
     
-    WCCTrieTreeUtil *util = [[WCCTrieTreeUtil alloc] init];
-    [util insert:@"五分钟学算法"];
-    [util insert:@"五分钟商学院"];
-    [util insert:@"五分钟英语演讲"];
-    [util insert:@"六分钟"];
-    [util insert:@"五分钟干点啥"];
-    [util insert:@"五天的时间干点啥"];
-    [util deleteStr:@"五分钟干点啥"];
-    NSArray *arr = [util printPre:@"五"];
-    for (int i = 0; i < arr.count; i++) {
-        NSLog(@"%@",arr[i]);
-    }
+    UnionSetExample example;
+    vector<vector<char>> vect = {
+        {'1','1','0','0','0'},
+        {'1','1','0','0','0'},
+        {'0','0','1','0','0'},
+        {'0','0','0','1','1'}
+        
+    };
+//    {
+//        {'1','1','1','1','0'},
+//        {'1','1','0','1','0'},
+//        {'1','1','0','0','0'},
+//        {'0','0','0','0','0'}};
+    cout<<example.numIslands(vect)<<endl;
 }
 
 

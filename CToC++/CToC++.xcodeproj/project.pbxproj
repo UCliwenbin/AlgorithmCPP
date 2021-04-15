@@ -29,6 +29,7 @@
 		0476034B25F0725A000FFAB9 /* LeetCodeSolution6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0476034925F0725A000FFAB9 /* LeetCodeSolution6.cpp */; };
 		04790B3524AB3CD40032CE87 /* LeetCodeSolution1.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04790B3324AB3CD40032CE87 /* LeetCodeSolution1.cpp */; };
 		049E973B2626D1FF0050FE75 /* WCCTrieTreeUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 049E973A2626D1FF0050FE75 /* WCCTrieTreeUtil.m */; };
+		049E98AD2627ED590050FE75 /* UnionSetExample.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 049E98AB2627ED590050FE75 /* UnionSetExample.cpp */; };
 		04AE1D042423AE9F00E6BD99 /* MyTree.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04AE1D022423AE9F00E6BD99 /* MyTree.cpp */; };
 		04C4901824603ED9009DA718 /* LinkAlgoritm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C4901624603ED9009DA718 /* LinkAlgoritm.cpp */; };
 		04C9A2142467A1A000BE271C /* TreeAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 04C9A2122467A1A000BE271C /* TreeAlgorithm.cpp */; };
@@ -113,6 +114,8 @@
 		04790B3424AB3CD40032CE87 /* LeetCodeSolution1.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCodeSolution1.hpp; sourceTree = "<group>"; };
 		049E97392626D1FF0050FE75 /* WCCTrieTreeUtil.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WCCTrieTreeUtil.h; sourceTree = "<group>"; };
 		049E973A2626D1FF0050FE75 /* WCCTrieTreeUtil.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WCCTrieTreeUtil.m; sourceTree = "<group>"; };
+		049E98AB2627ED590050FE75 /* UnionSetExample.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = UnionSetExample.cpp; sourceTree = "<group>"; };
+		049E98AC2627ED590050FE75 /* UnionSetExample.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = UnionSetExample.hpp; sourceTree = "<group>"; };
 		04AE1D022423AE9F00E6BD99 /* MyTree.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyTree.cpp; sourceTree = "<group>"; };
 		04AE1D032423AE9F00E6BD99 /* MyTree.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = MyTree.hpp; sourceTree = "<group>"; };
 		04C4901624603ED9009DA718 /* LinkAlgoritm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LinkAlgoritm.cpp; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 			children = (
 				046D1EC924BD5C2F00FBC6CE /* UnionSet.hpp */,
 				046D1EC824BD5C2F00FBC6CE /* UnionSet.cpp */,
+				049E98AC2627ED590050FE75 /* UnionSetExample.hpp */,
+				049E98AB2627ED590050FE75 /* UnionSetExample.cpp */,
 			);
 			path = UnionSet;
 			sourceTree = "<group>";
@@ -516,6 +521,7 @@
 				04DDBA8F25E748C200BD92CB /* LRUCache.cpp in Sources */,
 				0416C6F62609B735007C32CD /* MazeAlgorithm.cpp in Sources */,
 				0406D31C24B5B18B008E27FF /* LeetCodeSolution380.cpp in Sources */,
+				049E98AD2627ED590050FE75 /* UnionSetExample.cpp in Sources */,
 				041FC51E24B2D00F008348C5 /* LeetCodeSolution2.cpp in Sources */,
 				04F44A6B24C1378B00260AAC /* LeetcodeSolution437.cpp in Sources */,
 				04F44A8024C8140900260AAC /* LeetcodeSolution951.cpp in Sources */,

@@ -15,8 +15,8 @@ using namespace std;
 
 class UnionSet {
 private:
-    vector<int> parent;
-    vector<int> rank;
+    vector<int> parent;  //用来存放所有非联通子集
+    vector<int> rank;  //用来记录当前集合的大小
     
 public:
     UnionSet(int maxSize):parent(vector<int>(maxSize)),rank(vector<int>(maxSize,0)) {
